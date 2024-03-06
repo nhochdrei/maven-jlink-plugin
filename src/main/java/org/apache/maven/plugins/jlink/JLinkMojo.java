@@ -457,7 +457,12 @@ public class JLinkMojo extends AbstractJLinkMojo {
         List<File> list = new ArrayList<>(project.getArtifacts().size() + 1);
 
         for (Artifact a : project.getArtifacts()) {
-            getLog().debug("Artifact: " + a.getGroupId() + ":" + a.getArtifactId() + ":" + a.getVersion());
+            boolean skip = "pom".equals(a.getType());
+            getLog().debug("Artifact: " + a.getGroupId() + ":" + a.getArtifactId() + ":" + a.getVersion()
+                    + (skip ? " (skipping)" : ""));
+            if (skip) {
+                continue;
+            }
             list.add(a.getFile());
         }
         return list;
