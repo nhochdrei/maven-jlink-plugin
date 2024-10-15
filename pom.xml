@@ -28,7 +28,7 @@
   </parent>
 
   <artifactId>maven-jlink-plugin</artifactId>
-  <version>3.2.1-SNAPSHOT</version>
+  <version>3.2.1+n3u1</version>
   <packaging>maven-plugin</packaging>
 
   <name>Apache Maven JLink Plugin</name>
